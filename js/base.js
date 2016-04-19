@@ -16,7 +16,7 @@ var emptyResults = function(){
 $("#searchapi").click(function() {
 	 emptyResults();
     var searchKey = document.getElementById('searchkey').value;
-    var api_key = "api_key=d10ad2667b9ec8a098e6634b92ec9d2a";
+    var api_key = config.tmdb_api_key;
     var apiUrl = "https://api.themoviedb.org/3/search/movie?";
     //reference variable to hold baseUrl for images
     var apiBaseUrl = '';
@@ -33,9 +33,9 @@ $("#searchapi").click(function() {
         console.log(data.results[0]);
         var info = data.results[0];
 
-        $('.result-title').append(info.original_title);
-        $('.result-poster').append('<img src=' + apiBaseUrl+ "w500" + info.poster_path + '>');
-        $('.result-overview').append(info.overview);
+        $('.result-title').append(info.original_title).hide().fadeIn("slow");
+        $('.result-poster').append('<img src=' + apiBaseUrl+ "w500" + info.poster_path + '>').hide().fadeIn("slow");
+        $('.result-overview').append(info.overview).hide().fadeIn("slow");
 
 
 
