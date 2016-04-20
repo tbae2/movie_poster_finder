@@ -4,7 +4,6 @@ var emptyResults = function(){
 	$('.result-poster').empty();
 	$('.result-overview').empty();
 
-
 };
 
 //grab button element to use to fire ajax request for search
@@ -24,14 +23,17 @@ $("#searchapi").click(function() {
     console.log(apiBaseUrl);
 
 
+
     $.getJSON(apiUrl + "query=" + searchKey + "&" + api_key, function(data) {
-        console.log(data.results[0]);
+        console.log(data.results);
         var info = data.results[0];
+        for(var i = 0; i < 5; i++){
 
-        $('.result-title').append(info.original_title).hide().fadeIn("slow");
-        $('.result-poster').append('<img src=' + apiBaseUrl+ "w500" + info.poster_path + '>').hide().fadeIn("slow");
-        $('.result-overview').append(info.overview).hide().fadeIn("slow");
+        $('.result-title').append(data.results[i].original_title).hide().fadeIn("slow");
+        $('.result-poster').append('<img src=' + apiBaseUrl+ "w500" + data.results[i].poster_path + '>').hide().fadeIn("slow");
+        $('.result-overview').append(data.results[i].overview).hide().fadeIn("slow");
 
+        }
 
 
 

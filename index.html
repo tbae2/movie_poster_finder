@@ -1,35 +1,32 @@
 <!DOCTYPE html>
-    <html>
+<html>
 
-    <head>
-        <title>Movie Finder</title>
-        <link rel="stylesheet" type="text/css" href="./css/base.css">
-    </head>
+<head>
+    <title>Movie Finder</title>
+    <link rel="stylesheet" type="text/css" href="./css/base.css">
+</head>
 
-    <body>
-        <div class="headersearch">
-            <h1>Movie Finder</h1>
-            <input type="text" id="searchkey"></input>
-			<input type="button" value="Search" id="searchapi"></input>
+<body>
+    <div class="headersearch">
+        <h1>Movie Finder</h1>
+        <input type="text" id="searchkey"></input>
+        <input type="button" value="Search" id="searchapi"></input>
+    </div>
+    <div class="results">
+        <div class="movie-result">
+            <div class="result-title"></div>
+            <div class="result-poster"></div>
+            <div class="result-overview"></div>
         </div>
-       	 <div class="results">
-       	 	<div class="result-title"></div>
-       	 	<div class="result-poster"></div>
-       	 	<div class="result-overview">
-       	 		<div id="release-year"></div>
-       	 		<div id="release-length"></div>
-       	 		
-
-       	 	</div>
-			
-        </div>
-        <div class="footer">
+    </div>
+    </div>
+    <div class="footer">
         <h6>Driven by TheMovieDB & imdb</h6>
-        </div>
-        <!--         script that holds api key and keeps out of git as .git ignored -->
+    </div>
+    <!--         script that holds api key and keeps out of git as .git ignored -->
     <script type="text/javascript" src="./js/config.js"></script>
-             <script type="text/javascript" src="./js/jquery-2.2.3.js"></script>
-        <script type="text/javascript" src="./js/base.js"></script>
-    </body>
+    <script type="text/javascript" src="./js/jquery-2.2.3.js"></script>
+    <script type="text/javascript" src="./js/base.js"></script>
+</body>
 
-    </html>
+</html>
