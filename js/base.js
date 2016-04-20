@@ -1,8 +1,3 @@
-//grab button element to use to fire ajax request for search
-var searchApi = document.getElementById('searchapi');
-
-
-
 
 var emptyResults = function(){
 	$('.result-title').empty();
@@ -12,7 +7,7 @@ var emptyResults = function(){
 
 };
 
-
+//grab button element to use to fire ajax request for search
 $("#searchapi").click(function() {
 	 emptyResults();
     var searchKey = document.getElementById('searchkey').value;
