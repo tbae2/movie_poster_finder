@@ -46,25 +46,25 @@ var createResults = function(inputData,resultAmount,apiBase){
         'class': 'movie-result ' + i
     }));
     //create movie title
-    $('.movie-result.' + i).append($('<div></div>',{
+/*    $('.movie-result.' + i).append($('<div></div>',{
         'class': 'result-title',
         'html' : inputData.results[i].original_title
-    }));
+    }));*/
     //create movie poster element
     $('.movie-result.' + i).append($('<div></div>',{
         'class' : 'result-poster',
         'html': '<img src=' + apiBase + "w500" + inputData.results[i].poster_path + '>'
     }));
     //create movie summary element
-    $('.movie-result.' + i).append($('<div></div>',{
+  /*  $('.movie-result.' + i).append($('<div></div>',{
         'class' : 'result-overview',
         'html' : inputData.results[i].overview
-    }));
+    }));*/
     //create hover div that shows more information when poster is moused over
-        $('.movie-result.' + i).append($('<div></div>',{
+/*        $('.movie-result.' + i).append($('<div></div>',{
             'class' : 'result-hover',
             'html': "Release Date: " + inputData.results[i].release_date + "<br> Average Vote: " + inputData.results[i].vote_average
-        }));
+        }));*/
     }
 
 }
