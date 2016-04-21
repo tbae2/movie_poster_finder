@@ -53,12 +53,5 @@ var createResults = function(inputData,resultAmount,apiBase){
         'html' : inputData.results[i].overview
     }));
     }
-/*  
-        deprecated methods for adding html less modular
-        $('.result-title').append(data.results[i].original_title).hide().fadeIn("slow");
-        $('.result-poster').append('<img src=' + apiBaseUrl+ "w500" + data.results[i].poster_path + '>').hide().fadeIn("slow");
-        $('.result-overview').append(data.results[i].overview).hide().fadeIn("slow");*/
-
-
 
 }
