@@ -8,7 +8,9 @@ var emptyResults = function(){
 //grab button element to use to fire ajax request for search
 $("#searchapi").click(function() {
 	 emptyResults();
+     //grab the search term from the input box
     var searchKey = document.getElementById('searchkey').value;
+    //load api key from external config js
     var api_key = config.tmdb_api_key;
     var apiUrl = "https://api.themoviedb.org/3/search/movie?";
     var resultAmount = document.getElementById('result-amount').value;
@@ -27,6 +29,13 @@ $("#searchapi").click(function() {
         });
 
 });
+//register enter key  usage
+$("#searchkey").keypress(function(e){
+    if(e.which == 13){
+        $("#searchapi").click();
+    }
+})
+
 
 var createResults = function(inputData,resultAmount,apiBase){
 
