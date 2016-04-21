@@ -1,4 +1,3 @@
-
 var emptyResults = function(){
 	$('.results').empty();
 

@@ -5,9 +5,15 @@ body {
 
 }
 .results {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+
+}
+.movie-result {
+	margin: auto;
 	width: 300px;
-	padding: 5px;
-	margin: 1px;
+	height: 300px;
 }
 .result-title {
 	font-weight: 700;

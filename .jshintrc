@@ -1,0 +1,5 @@
+// requires curly brackets for all loops and conditionals
+"curly": true
+
+"latedef": nofunc
+
