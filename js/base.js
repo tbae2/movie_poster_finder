@@ -21,7 +21,7 @@ $("#searchapi").click(function() {
         apiBaseUrl = data.images.base_url;
     });
     //get result of the query and pass to function that creates the results to show including amount of results to display
- $.getJSON(apiUrl + "query=" + searchKey + "&" + api_key, function(data) {
+    $.getJSON(apiUrl + "query=" + searchKey + "&" + api_key, function(data) {
 
                     createResults(data,resultAmount,apiBaseUrl);
         });
@@ -52,6 +52,11 @@ var createResults = function(inputData,resultAmount,apiBase){
         'class' : 'result-overview',
         'html' : inputData.results[i].overview
     }));
+    //create hover div that shows more information when poster is moused over
+        $('.movie-result.' + i).append($('<div></div>',{
+            'class' : 'result-hover',
+            'html': "Release Date: " + inputData.results[i].release_date + "<br> Average Vote: " + inputData.results[i].vote_average
+        }));
     }
 
 }
