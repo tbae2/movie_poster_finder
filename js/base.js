@@ -30,8 +30,7 @@ $("#searchapi").click(function() {
 
 var createResults = function(inputData,resultAmount,apiBase){
 
-           console.log(inputData.results);
-            var info = inputData.results[0];
+    //loop through results for specified amount of times 1 or 5 
     for(var i = 0; i < resultAmount; i++){
         console.log(apiBase);
     //create movie block for holding individual movie info
