@@ -8,27 +8,28 @@ body {
 
   display: -webkit-flex;
   display: flex;
-	-webkit-flex-flow: row wrap;
-	justify-content: space-around;
-	padding: 0;
-	margin: 0;
+	flex-wrap: wrap;
+ text-align: center;
+ justify-content: space-around;
 }
-.movie-result {
-	margin: 5px;
-	width: 300px;
-	
-	padding: 5px;
-	
+.results .movie-result {
+	/*short hand for flex-grow,flex-shrink,flexbasis*/
+	flex: 1 0 300px;
+	margin-left: 10px;
+	margin-top: 10px;
+	padding: 10px;
+	max-width: 300px;
 }
 .result-title {
 	font-weight: 700;
 
 }
-.result-poster img {
-	width: 250px;
+.result-poster {
+	display: flex;
+	justify-content: center;
 }
 .result-overview{
-
+	
 }
 .footer{
 
