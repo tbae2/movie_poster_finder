@@ -19,6 +19,7 @@ body {
 	margin-top: 10px;
 	padding: 10px;
 	max-width: 300px;
+	position: relative;
 }
 .result-title {
 	font-weight: 700;
@@ -30,6 +31,14 @@ body {
 }
 .result-overview{
 	
+}
+.result-hover {
+	position: absolute;
+	top: 50px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	font-size:x-large;
 }
 .footer{
 
