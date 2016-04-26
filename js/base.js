@@ -11,8 +11,10 @@ $("#searchapi").click(function() {
     var searchKey = document.getElementById('searchkey').value;
     //load api key from external config js
     var api_key = config.tmdb_api_key;
-    var apiUrl = "https://api.themoviedb.org/3/search/movie?";
+    //base api url
+    var apiUrl = "https://api.themoviedb.org/3/";
     var resultAmount = document.getElementById('result-amount').value;
+    var holdOverview;
     console.log(resultAmount);
     //reference variable to hold baseUrl for images
     var apiBaseUrl = '';
@@ -22,13 +24,20 @@ $("#searchapi").click(function() {
         apiBaseUrl = data.images.base_url;
     });
     //get result of the query and pass to function that creates the results to show including amount of results to display
-    $.getJSON(apiUrl + "query=" + searchKey + "&" + api_key, function(data) {
+    $.getJSON(apiUrl + "search/movie?query=" + searchKey + "&" + api_key, function(data) {
 
-                    createResults(data,resultAmount,apiBaseUrl);
+                    holdOverview = data;
+                     //createResults(data,resultAmount,apiBaseUrl);
+                     $.getJSON(apiURL + "movie/" +  )
         });
-
+  
 });
-//register enter key  usage
+
+
+
+
+
+//register enter key  usage to fire the search function
 $("#searchkey").keypress(function(e){
     if(e.which == 13){
         $("#searchapi").click();
