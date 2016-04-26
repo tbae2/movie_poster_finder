@@ -37,7 +37,7 @@ $("#searchkey").keypress(function(e){
 
 
 var createResults = function(inputData,resultAmount,apiBase){
-
+    console.log(inputData);
     //loop through results for specified amount of times 1 or 5 
     for(var i = 0; i < resultAmount; i++){
         console.log(apiBase);
@@ -61,10 +61,10 @@ var createResults = function(inputData,resultAmount,apiBase){
         'html' : '<p>' + inputData.results[i].overview
     }));
     //create hover div that shows more information when poster is moused over
-/*        $('.movie-result.' + i).append($('<div></div>',{
+       $('.movie-result.' + i).append($('<div></div>',{
             'class' : 'result-hover',
             'html': "Release Date: " + inputData.results[i].release_date + "<br> Average Vote: " + inputData.results[i].vote_average
-        }));*/
+        }));
     }
 
 }
