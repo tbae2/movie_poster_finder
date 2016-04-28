@@ -14,8 +14,8 @@ $("#searchapi").click(function() {
     //base api url
     var apiUrl = "https://api.themoviedb.org/3/";
     var resultAmount = document.getElementById('result-amount').value;
-    var holdOverview;
-    console.log(resultAmount);
+    var holdOverView;
+    
     //reference variable to hold baseUrl for images
     var apiBaseUrl = '';
     //grab the baseUrl for the image and set reference variable
@@ -25,12 +25,24 @@ $("#searchapi").click(function() {
     });
     //get result of the query and pass to function that creates the results to show including amount of results to display
     $.getJSON(apiUrl + "search/movie?query=" + searchKey + "&" + api_key, function(data) {
+        console.log(data.results);
+        console.log(data.results[0].id);
+                holdOverView = data;
+                for(var y in data.results){
+                    console.log(y);
+                }
 
-                    holdOverview = data;
+
+                 for(var x in data){
+                //    console.log(data[x]);
                      //createResults(data,resultAmount,apiBaseUrl);
-                     $.getJSON(apiURL + "movie/" +  )
+                     $.getJSON(apiUrl + "movie/" +  data[x].id + "&" + api_key,function(data2){
+                            //console.log(data2);
+                     });
+
+                 }
         });
-  
+
 });
 
 
@@ -46,10 +58,10 @@ $("#searchkey").keypress(function(e){
 
 
 var createResults = function(inputData,resultAmount,apiBase){
-    console.log(inputData);
+    //console.log(inputData);
     //loop through results for specified amount of times 1 or 5 
-    for(var i = 0; i < resultAmount; i++){
-        console.log(apiBase);
+    //for(var i = 0; i < resultAmount; i++){
+       // console.log(apiBase);
     //create movie block for holding individual movie info
     $('.results').append($('<div></div>',{
         'class': 'movie-result ' + i
@@ -74,6 +86,6 @@ var createResults = function(inputData,resultAmount,apiBase){
             'class' : 'result-hover',
             'html': "Release Date: " + inputData.results[i].release_date + "<br> Average Vote: " + inputData.results[i].vote_average
         }));
-    }
+    //}
 
 }
