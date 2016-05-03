@@ -30,6 +30,7 @@ $("#searchapi").click(function() {
         console.log(data.results[0].id);
         
                 var holdID = [];
+                var holdResults = [];
                 for(var y = 0; y < resultAmount; y++){
                     console.log(data.results[y].id);
                     holdID.push(data.results[y].id);
@@ -40,9 +41,11 @@ $("#searchapi").click(function() {
 
                      $.getJSON(apiUrl + "movie/" +  holdID[idCount] + "?" + api_key,function(data2){
                             console.log(data2);
+                            holdResults.push(data2);
                      });
 
                  }
+                 console.log(holdResults);
         });
 
 });
