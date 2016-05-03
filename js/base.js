@@ -25,20 +25,22 @@ $("#searchapi").click(function() {
     });
     //get result of the query and pass to function that creates the results to show including amount of results to display
     $.getJSON(apiUrl + "search/movie?query=" + searchKey + "&" + api_key, function(data) {
+        console.log(data);
         console.log(data.results);
         console.log(data.results[0].id);
+        
                 holdOverView = data;
-                for(var y in data.results){
-                    console.log(y);
+                for(var y = 0; y <= data.results.length && y < resultAmount; y++){
+                    console.log(data.results[y].id);
                 }
 
 
                  for(var x in data){
                 //    console.log(data[x]);
                      //createResults(data,resultAmount,apiBaseUrl);
-                     $.getJSON(apiUrl + "movie/" +  data[x].id + "&" + api_key,function(data2){
+                   /*  $.getJSON(apiUrl + "movie/" +  data[x].id + "&" + api_key,function(data2){
                             //console.log(data2);
-                     });
+                     });*/
 
                  }
         });
