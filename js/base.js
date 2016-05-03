@@ -29,13 +29,14 @@ $("#searchapi").click(function() {
         console.log(data.results);
         console.log(data.results[0].id);
         
-                holdOverView = data;
+                var holdID = [];
                 for(var y = 0; y <= data.results.length && y < resultAmount; y++){
                     console.log(data.results[y].id);
+                    holdID.push(data.results[y].id);
                 }
+                console.log(holdID);
 
-
-                 for(var x in data){
+                 for(){
                 //    console.log(data[x]);
                      //createResults(data,resultAmount,apiBaseUrl);
                    /*  $.getJSON(apiUrl + "movie/" +  data[x].id + "&" + api_key,function(data2){
