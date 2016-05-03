@@ -24,7 +24,7 @@ $("#searchapi").click(function() {
         apiBaseUrl = data.images.base_url;
     });
     //get result of the query and pass to function that creates the results to show including amount of results to display
-    $.getJSON(apiUrl + "search/movie?query=" + searchKey + "?" + api_key, function(data) {
+    $.getJSON(apiUrl + "search/movie?query=" + searchKey + "&" + api_key, function(data) {
         console.log(data);
         console.log(data.results);
         console.log(data.results[0].id);
@@ -38,7 +38,7 @@ $("#searchapi").click(function() {
 
                  for(var idCount = 0; idCount < holdID.length; idCount++){
 
-                     $.getJSON(apiUrl + "movie/" +  holdID[idCount] + "&" + api_key,function(data2){
+                     $.getJSON(apiUrl + "movie/" +  holdID[idCount] + "?" + api_key,function(data2){
                             console.log(data2);
                      });
 
