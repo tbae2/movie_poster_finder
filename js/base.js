@@ -25,10 +25,11 @@ $("#searchapi").click(function() {
         apiBaseUrl = data.images.base_url;
     });
     //get result of the query and pass to function that creates the results to show including amount of results to display
+       var holdResults = [];
     $.getJSON(apiUrl + "search/movie?query=" + searchKey + "&" + api_key, function(data) {
 
         var holdID = [];
-        var holdResults = [];
+     
         for (var y = 0; y < resultAmount; y++) {
             console.log(data.results[y].id);
             holdID.push(data.results[y].id);
@@ -39,17 +40,23 @@ $("#searchapi").click(function() {
             //deferred object 
 
             holdResults.push($.getJSON(apiUrl + "movie/" + holdID[idCount] + "?" + api_key, function(data2) {
-                        return data2.responseJSON;
+                //console.log(data2);
+                        
 
             }));
 
         }
-        //only apply when all of the getjson looping is completed buy the previous for loop
-        $.when.apply($, holdResults).done(function() {
+        //only apply when all of the getjson looping is completed by the previous for loop
+   /*      $.when.apply($, holdResults).then(function() {
             console.log(holdResults);
-        })
+        });*/
         
-    });
+      
+    }).done(function(){
+        console.log(holdResults);
+    })
+    
+     
 
 });
 
