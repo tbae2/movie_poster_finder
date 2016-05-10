@@ -33,7 +33,7 @@ $("#searchapi").click(function() {
         $.each(data.results, function(i, movie) {
             //call the API again to get more complete information utilizing the ID field from the "movie" item of the data returned
             $.getJSON(apiUrl + "movie/" + movie.id + "?" + api_key, function(data2) {
-                testResult(data2);
+                createResults(data2);
 
             })
             //stop the running if the desired result is matched by the iterations.
@@ -59,13 +59,11 @@ $("#searchkey").keypress(function(e) {
     }
 })
 
-//will need to be modified to accept new format of data. 
-var createResults = function(inputData, resultAmount, apiBase) {
-    //console.log(inputData);
-    //loop through results for specified amount of times 1 or 5 
-    //for(var i = 0; i < resultAmount; i++){
-    // console.log(apiBase);
-    //create movie block for holding individual movie info
+//function to create results from input provided via search api Jquery function. 
+var createResults = function(inputData) {
+
+
+
     $('.results').append($('<div></div>', {
         'class': 'movie-result ' + i
     }));
