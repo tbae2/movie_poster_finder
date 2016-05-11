@@ -33,7 +33,7 @@ $("#searchapi").click(function() {
         $.each(data.results, function(i, movie) {
             //call the API again to get more complete information utilizing the ID field from the "movie" item of the data returned
             $.getJSON(apiUrl + "movie/" + movie.id + "?" + api_key, function(data2) {
-                createResults(data2);
+                createResults(i,data2,apiBaseUrl);
 
             })
             //stop the running if the desired result is matched by the iterations.
@@ -60,32 +60,36 @@ $("#searchkey").keypress(function(e) {
 })
 
 //function to create results from input provided via search api Jquery function. 
-var createResults = function(inputData) {
+//function accepts the index count, inputData each call (provided by each jquery function) and apiBaseURL 
+var createResults = function(indexCount,inputData,apiBaseUrl) {
 
+    console.log(inputData);
 
+    mv = inputData;
 
     $('.results').append($('<div></div>', {
-        'class': 'movie-result ' + i
+        'class': 'movie-result ' + indexCount
     }));
     //create movie title
-    $('.movie-result.' + i).append($('<div></div>', {
+
+    $('.movie-result.' + indexCount).append($('<div></div>', {
         'class': 'result-title',
-        'html': inputData.results[i].original_title
+        'html': mv.title
     }));
     //create movie poster element
-    $('.movie-result.' + i).append($('<div></div>', {
+    $('.movie-result.' + indexCount).append($('<div></div>', {
         'class': 'result-poster',
-        'html': '<img src=' + apiBase + "w300" + inputData.results[i].poster_path + '>'
-    }));
+        'html': '<img src=' + apiBaseUrl + "w300" + mv.poster_path + '>'
+    }))
     //create movie summary element
-    $('.movie-result.' + i).append($('<div></div>', {
+    $('.movie-result.' + indexCount).append($('<div></div>', {
         'class': 'result-overview',
-        'html': '<p>' + inputData.results[i].overview
+        'html': '<p>' + mv.overview
     }));
     //create hover div that shows more information when poster is moused over
-    $('.movie-result.' + i).append($('<div></div>', {
+    $('.movie-result.' + indexCount).append($('<div></div>', {
         'class': 'result-hover',
-        'html': "Release Date: " + inputData.results[i].release_date + "<br> Average Vote: " + inputData.results[i].vote_average
+        'html': "Release Date: " + mv.release_date + "<br> Average Vote: " + mv.vote_average
     }));
     //}
 
