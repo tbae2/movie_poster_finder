@@ -64,8 +64,17 @@ $("#searchkey").keypress(function(e) {
 var createResults = function(indexCount,inputData,apiBaseUrl) {
 
     console.log(inputData);
+    //var to make easier calls back to source data
+    var mv = inputData;
+    //vars to hold json properties that are arrays for easier addition to output
+    var prodCompanies = '';
+    var genreTypes = '';
 
-    mv = inputData;
+    for(var x=0; x < mv.production_companies.length; x++){
+        prodCompanies += mv.production_companies[x].name + ' ';
+    }
+
+
 
     $('.results').append($('<div></div>', {
         'class': 'movie-result ' + indexCount
@@ -89,7 +98,7 @@ var createResults = function(indexCount,inputData,apiBaseUrl) {
     //create hover div that shows more information when poster is moused over
     $('.movie-result.' + indexCount).append($('<div></div>', {
         'class': 'result-hover',
-        'html': "Release Date: " + mv.release_date + "<br> Average Vote: " + mv.vote_average
+        'html': "Release Date: " + mv.release_date + "<br> Average Vote: " + mv.vote_average + "<br> Production Companies: " + prodCompanies
     }));
     //}
 
