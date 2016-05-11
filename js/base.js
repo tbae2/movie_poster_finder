@@ -71,7 +71,7 @@ var createResults = function(indexCount,inputData,apiBaseUrl) {
     var genreTypes = '';
 
     for(var x=0; x < mv.production_companies.length; x++){
-        prodCompanies += mv.production_companies[x].name + ' ';
+        prodCompanies += '<li>'+mv.production_companies[x].name + '</li>';
     }
 
 
@@ -98,7 +98,7 @@ var createResults = function(indexCount,inputData,apiBaseUrl) {
     //create hover div that shows more information when poster is moused over
     $('.movie-result.' + indexCount).append($('<div></div>', {
         'class': 'result-hover',
-        'html': "Release Date: " + mv.release_date + "<br> Average Vote: " + mv.vote_average + "<br> Production Companies: " + prodCompanies
+        'html': "Release Date: " + mv.release_date + "<br> Average Vote: " + mv.vote_average + "<br> Production Companies: " + '<ul>' + prodCompanies +  '</ul>'
     }));
     //}
 
