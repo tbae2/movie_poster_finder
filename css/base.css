@@ -30,7 +30,7 @@ body {
 	justify-content: center;
 }
 .result-overview{
-	
+
 }
 .result-hover {
 	position: absolute;
@@ -39,10 +39,12 @@ body {
 	right: 0px;
 	bottom: 0px;
 	font-size:medium;
+	background-color: rgba(252,251,251,0.8)
 }
 .result-hover ul li {
 	margin-bottom: 0px;
 	margin-top: 2px;
+
 }
 .footer{
 

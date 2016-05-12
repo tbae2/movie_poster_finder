@@ -24,7 +24,7 @@ $("#searchapi").click(function() {
 
         apiBaseUrl = data.images.base_url;
     });
- 
+
     //search for the movie keyword
     $.getJSON(apiUrl + "search/movie?query=" + searchKey + "&" + api_key, function(data) {
         //deferred running until done calling
