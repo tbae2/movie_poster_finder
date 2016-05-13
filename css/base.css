@@ -42,9 +42,10 @@ body {
 	background-color: rgba(252,251,251,0.8)
 }
 .result-hover ul li {
-	margin-bottom: 0px;
+	margin-bottom: -10px;
 	margin-top: 2px;
-
+	list-style: none;
+	text-align: left;
 }
 .footer{
 

@@ -98,7 +98,8 @@ var createResults = function(indexCount,inputData,apiBaseUrl) {
     //create hover div that shows more information when poster is moused over
     $('.movie-result.' + indexCount).append($('<div></div>', {
         'class': 'result-hover',
-        'html': "Release Date: " + mv.release_date + "<br> Average Vote: " + mv.vote_average + "<br> Production Companies: " + '<ul>' + prodCompanies +  '</ul>'
+        'html': "Release Date: " + mv.release_date + '<br><span class="sectionTitle">Average Vote: </span>' + 
+            mv.vote_average + '<br><span class="sectionTitle">Production Companies: </span>' + '<ul>' + prodCompanies +  '</ul>'
     }));
     //}
 
