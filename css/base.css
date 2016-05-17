@@ -38,9 +38,13 @@ body {
 	left: 0;
 	right: 0;
 	bottom: 0;
+	visibility: hidden;
 	font-size:medium;
 	background-color: rgba(252,251,251,0.8);
 	text-align: left;
+}
+.result-hover:hover {
+	visibility: visible;
 }
 .result-hover ul li {
 	margin-bottom: -10px;
