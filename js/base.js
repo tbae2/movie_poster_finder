@@ -63,7 +63,7 @@ $("#searchkey").keypress(function(e) {
 //function accepts the index count, inputData each call (provided by each jquery function) and apiBaseURL 
 var createResults = function(indexCount,inputData,apiBaseUrl) {
 
-    console.log(inputData);
+    //console.log(inputData);
     //var to make easier calls back to source data
     var mv = inputData;
     //vars to hold json properties that are arrays for easier addition to output
@@ -104,3 +104,9 @@ var createResults = function(indexCount,inputData,apiBaseUrl) {
     //}
 
 }
+
+//function to display hover div over posters.
+$('.results').mouseover(function(){
+    $('.results').find("result-hover").css("visibility","visible");
+    
+});
