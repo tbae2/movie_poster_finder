@@ -106,8 +106,9 @@ var createResults = function(indexCount,inputData,apiBaseUrl) {
 }
 
 //function to display hover div over posters.
-$('.results').mouseover(function(){
+$('.movie-result').mouseover('.result-title',function(){
     console.log("yes");
-    $('movie-result').css("visibility","hidden");
+    $(this).css("visibility","hidden");
     
 });
+
