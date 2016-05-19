@@ -77,26 +77,26 @@ var createResults = function(indexCount,inputData,apiBaseUrl) {
 
 
     $('.results').append($('<div></div>', {
-        'class': 'movie-result ' + indexCount
+        'class': 'movie-result'
     }));
     //create movie title
 
-    $('.movie-result.' + indexCount).append($('<div></div>', {
+    $('.movie-result').append($('<div></div>', {
         'class': 'result-title',
         'html': mv.title
     }));
     //create movie poster element
-    $('.movie-result.' + indexCount).append($('<div></div>', {
+    $('.movie-result').append($('<div></div>', {
         'class': 'result-poster',
         'html': '<img src=' + apiBaseUrl + "w300" + mv.poster_path + '>'
     }))
     //create movie summary element
-    $('.movie-result.' + indexCount).append($('<div></div>', {
+    $('.movie-result').append($('<div></div>', {
         'class': 'result-overview',
         'html': '<p>' + mv.overview
     }));
     //create hover div that shows more information when poster is moused over
-    $('.movie-result.' + indexCount + ' .result-poster').append($('<div></div>', {
+    $('.movie-result' + ' .result-poster').append($('<div></div>', {
         'class': 'result-hover',
         'html': "Release Date: " + mv.release_date + '<br><span class="sectionTitle">Average Vote: </span>' +
             mv.vote_average + '<br><span class="sectionTitle">Production Companies: </span>' + '<ul>' + prodCompanies +  '</ul>'
@@ -107,6 +107,7 @@ var createResults = function(indexCount,inputData,apiBaseUrl) {
 
 //function to display hover div over posters.
 $('.results').mouseover(function(){
-    $('.results').find("result-hover").css("visibility","visible");
+    console.log("yes");
+    $('movie-result').css("visibility","hidden");
     
 });
