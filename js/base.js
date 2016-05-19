@@ -33,10 +33,10 @@ $("#searchapi").click(function() {
         $.each(data.results, function(i, movie) {
             //call the API again to get more complete information utilizing the ID field from the "movie" item of the data returned
             $.getJSON(apiUrl + "movie/" + movie.id + "?" + api_key, function(data2) {
-                createResults(i,data2,apiBaseUrl);
+                    createResults(i, data2, apiBaseUrl);
 
-            })
-            //stop the running if the desired result is matched by the iterations.
+                })
+                //stop the running if the desired result is matched by the iterations.
             if (resultAmount - 1 === i) {
                 return false;
             }
@@ -61,7 +61,7 @@ $("#searchkey").keypress(function(e) {
 
 //function to create results from input provided via search api Jquery function. 
 //function accepts the index count, inputData each call (provided by each jquery function) and apiBaseURL 
-var createResults = function(indexCount,inputData,apiBaseUrl) {
+var createResults = function(indexCount, inputData, apiBaseUrl) {
 
     //console.log(inputData);
     //var to make easier calls back to source data
@@ -70,8 +70,8 @@ var createResults = function(indexCount,inputData,apiBaseUrl) {
     var prodCompanies = '';
     var genreTypes = '';
 
-    for(var x=0; x < mv.production_companies.length; x++){
-        prodCompanies += '<li>'+mv.production_companies[x].name + '</li>';
+    for (var x = 0; x < mv.production_companies.length; x++) {
+        prodCompanies += '<li>' + mv.production_companies[x].name + '</li>';
     }
 
 
@@ -87,10 +87,10 @@ var createResults = function(indexCount,inputData,apiBaseUrl) {
     }));
     //create movie poster element
     $('.movie-result').append($('<div></div>', {
-        'class': 'result-poster',
-        'html': '<img src=' + apiBaseUrl + "w300" + mv.poster_path + '>'
-    }))
-    //create movie summary element
+            'class': 'result-poster',
+            'html': '<img src=' + apiBaseUrl + "w300" + mv.poster_path + '>'
+        }))
+        //create movie summary element
     $('.movie-result').append($('<div></div>', {
         'class': 'result-overview',
         'html': '<p>' + mv.overview
@@ -99,16 +99,19 @@ var createResults = function(indexCount,inputData,apiBaseUrl) {
     $('.movie-result' + ' .result-poster').append($('<div></div>', {
         'class': 'result-hover',
         'html': "Release Date: " + mv.release_date + '<br><span class="sectionTitle">Average Vote: </span>' +
-            mv.vote_average + '<br><span class="sectionTitle">Production Companies: </span>' + '<ul>' + prodCompanies +  '</ul>'
+            mv.vote_average + '<br><span class="sectionTitle">Production Companies: </span>' + '<ul>' + prodCompanies + '</ul>'
     }));
     //}
 
 }
 
 //function to display hover div over posters.
-$('.movie-result').mouseover('.result-title',function(){
+//need selector in the "on" portion in order to target dynamically created content
+$('.results').on('mouseover', '.movie-result', function() {
     console.log("yes");
-    $(this).css("visibility","hidden");
-    
-});
+    //target result hover div , while referencing only the parent div the mouse is over
+    $('.result-hover', this).css("visibility", "visible");
 
+}).on('mouseout', '.movie-result', function() {
+    $('.result-hover', this).css('visibility', 'hidden');
+});
