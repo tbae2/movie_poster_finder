@@ -39,7 +39,7 @@ body {
 	left: 2px;
 	right: 2px;
 	bottom: 2px;
-	visibility: hidden;
+	opacity: 0;
 	font-size:medium;
 	background-color: rgba(252,251,251,0.8);
 	text-align: left;

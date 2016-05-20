@@ -109,7 +109,7 @@ var createResults = function(indexCount, inputData, apiBaseUrl) {
 //need selector in the "on" portion in order to target dynamically created content
 $('.results').on('mouseover', '.result-poster', function() {
     //target result hover div , while referencing only the parent div the mouse is over
-    $('.result-hover', this).css("visibility", "visible");
+    $('.result-hover', this).fadeTo("slow",1);  //.css("visibility", "visible");
 }).on('mouseout', '.result-poster', function() {
     $('.result-hover', this).css('visibility', 'hidden');
 });
