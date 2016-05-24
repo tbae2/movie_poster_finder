@@ -107,9 +107,13 @@ var createResults = function(indexCount, inputData, apiBaseUrl) {
 
 //function to display hover div over posters.
 //need selector in the "on" portion in order to target dynamically created content
-$('.results').on('mouseover', '.result-poster', function() {
+$('.results').on('mouseenter','.result-poster', function() {
     //target result hover div , while referencing only the parent div the mouse is over
-    $('.result-hover', this).fadeTo("slow",1);  //.css("visibility", "visible");
-}).on('mouseout', '.result-poster', function() {
-    $('.result-hover', this).css('visibility', 'hidden');
+    console.log('yes');
+    
+    $('.result-hover',this).fadeIn("slow"); 
+     //.css("visibility", "visible");
+}).on('mouseleave', '.result-poster', function() {
+    $('.result-hover', this).fadeOut('slow')
 });
+
