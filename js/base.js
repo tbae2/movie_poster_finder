@@ -34,7 +34,7 @@ $("#searchapi").click(function() {
             //call the API again to get more complete information utilizing the ID field from the "movie" item of the data returned
             $.getJSON(apiUrl + "movie/" + movie.id + "?" + api_key, function(data2) {
                     createResults(i, data2, apiBaseUrl);
-
+                    console.log(data2);
                 })
                 //stop the running if the desired result is matched by the iterations.
             if (resultAmount - 1 === i) {
@@ -69,9 +69,13 @@ var createResults = function(indexCount, inputData, apiBaseUrl) {
     //vars to hold json properties that are arrays for easier addition to output
     var prodCompanies = '';
     var genreTypes = '';
-
+    //loop to produce list of production companies for the film
     for (var x = 0; x < mv.production_companies.length; x++) {
         prodCompanies += '<li>' + mv.production_companies[x].name + '</li>';
+    }
+    //loop to produce the list of genres that apply to the movie
+    for(var x = 0; x < mv.genres.length; x++){
+        genreTypes += '<li>' + mv.genres[x].name + '</li>';
     }
 
     $('.results').append($('<div></div>', {
@@ -97,7 +101,8 @@ var createResults = function(indexCount, inputData, apiBaseUrl) {
     $('.movie-result.' + indexCount + ' .result-poster').append($('<div></div>', {
         'class': 'result-hover',
         'html': "Release Date: " + mv.release_date + '<br><span class="sectionTitle">Average Vote: </span>' +
-            mv.vote_average + '<br><span class="sectionTitle">Production Companies: </span>' + '<ul>' + prodCompanies + '</ul>'
+            mv.vote_average + '<br><span class="sectionTitle">Production Companies: </span>' + '<ul>' + prodCompanies + '</ul>' + '<br><span class="sectionTitle">Genres: </span>' + '<ul>' + genreTypes + '</ul>'
+
     }));
     //}
 
