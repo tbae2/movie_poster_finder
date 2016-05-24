@@ -86,7 +86,7 @@ var createResults = function(indexCount, inputData, apiBaseUrl) {
     //create movie poster element
     $('.movie-result.' + indexCount).append($('<div></div>', {
             'class': 'result-poster',
-            'html': '<img src=' + apiBaseUrl + "w300" + mv.poster_path === null ?  : mv.poster_path  + '>'
+            'html': mv.poster_path === null ? '<img src="./img/no_poster.png">' : '<img src=' + apiBaseUrl + "w300" + mv.poster_path + '>'    // '<img src=' + apiBaseUrl + "w300" + mv.poster_path === null ?  : mv.poster_path  + '>'
         }))
         //create movie summary element
     $('.movie-result.' + indexCount).append($('<div></div>', {
