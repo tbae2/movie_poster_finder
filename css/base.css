@@ -35,11 +35,11 @@ body {
 }
 .result-hover {
 	position: absolute;
-	top: 2px;
-	left: 2px;
-	right: 2px;
-	bottom: 2px;
-	opacity: 0;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	display:none;
 	font-size:medium;
 	background-color: rgba(252,251,251,0.8);
 	text-align: left;
