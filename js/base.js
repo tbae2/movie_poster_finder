@@ -74,8 +74,6 @@ var createResults = function(indexCount, inputData, apiBaseUrl) {
         prodCompanies += '<li>' + mv.production_companies[x].name + '</li>';
     }
 
-
-
     $('.results').append($('<div></div>', {
         'class': 'movie-result ' + indexCount
     }));
@@ -88,7 +86,7 @@ var createResults = function(indexCount, inputData, apiBaseUrl) {
     //create movie poster element
     $('.movie-result.' + indexCount).append($('<div></div>', {
             'class': 'result-poster',
-            'html': '<img src=' + apiBaseUrl + "w300" + mv.poster_path + '>'
+            'html': '<img src=' + apiBaseUrl + "w300" + mv.poster_path === null ?  : mv.poster_path  + '>'
         }))
         //create movie summary element
     $('.movie-result.' + indexCount).append($('<div></div>', {
