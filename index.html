@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Movie Finder</title>
+<!--     <link rel="stylesheet" href="css/normalize.css"> -->
+    <link href='https://fonts.googleapis.com/css?family=Cambay:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="./css/base.css">
+</head>
+
+<body>
+    <div class="headersearch">
+        <h1>Movie Finder</h1>
+        <input type="text" id="searchkey"></input>
+        <select id="result-amount">
+            <option>1</option>
+            <option>5</option>
+        </select>
+        <input type="button" value="Search" id="searchapi"></input>
+    </div>
+    <div class="results"></div>
+    <div class="footer">
+        <h6>Driven by TheMovieDB & imdb</h6>
+    </div>
+    <script src="./js/jquery-2.2.3.js"></script>
+    <script type="text/javascript" src="./js/base.js"></script>
+<!--         script that holds api key and keeps out of git as .git ignored -->
+    <script type="text/javascript" src="./js/config.js"></script>
+    
+</body>
+
+</html>
