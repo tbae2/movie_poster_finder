@@ -5,6 +5,18 @@ body {
 .headersearch {
 	text-align:center;
 }
+.searchoptions {
+	height: 25px;
+}
+#searchkey {
+	height: inherit;
+}
+#result-amount {
+	height: 31px;
+}
+#searchapi {
+	height: 31px;
+}
 .results {
 
   display: -webkit-flex;

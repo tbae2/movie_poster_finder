@@ -116,3 +116,7 @@ $('.results').on('mouseenter', '.result-poster', function() {
 }).on('mouseleave', '.result-poster', function() {
     $('.result-hover', this).fadeOut('slow')
 });
+
+$('#searchkey').click(function(){
+    $(this).val('');
+})
