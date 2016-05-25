@@ -1,33 +1,39 @@
 body {
 	font-family: 'Cambay', sans-serif;
-	 background-color: rgb(201, 201, 201);
+	 background-color: rgba(13, 37, 154, 0.64);
 }
 .headersearch {
 	text-align:center;
+}
+.headersearch h1 {
+	margin-top:20px;
+	font-size:5em;
+	margin-bottom:0px;
 }
 .searchoptions {
 	height: 25px;
 }
 #searchkey {
 	height: inherit;
-	border-radius:10px;
+	border-radius:5px;
 	border-style:none;
 	outline: none;
-	padding-left: 10px;
-	padding-right: 10px;
+	padding: 0px 10px 0px 10px;
+	
 }
 #result-amount {
-	height: 31px;
-	border-radius: 10px;
+	height: inherit;
+	border-radius: 5px;
 	border-style:none;
 	outline: none;
 	padding-left: 5px;
 	padding-right: 5px;
 }
 #searchapi {
-	height: 31px;
+	height: inherit;
 	border-style:none;
 	outline: none;
+	border-radius: 5px;
 	padding-left: 10px;
 	padding-right: 10px;
 }
