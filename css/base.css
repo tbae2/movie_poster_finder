@@ -29,6 +29,10 @@ body {
 .result-poster {
 	position: relative;
 	justify-content: center;
+	border-radius: 5px;
+}
+.result-poster img {
+	border-radius: 5px;
 }
 .result-overview{
 
@@ -39,10 +43,12 @@ body {
 	left: 0px;
 	right: 0px;
 	bottom: 0px;
+	border-radius: 5px;
 	display:none;
 	font-size:medium;
-	background-color: rgba(252,251,251,0.8);
+	background-color: rgba(252,251,251,0.9);
 	text-align: left;
+	padding: 25px;
 }
 
 .result-hover ul li {
@@ -50,6 +56,7 @@ body {
 	margin-top: 2px;
 	list-style: none;
 	text-align: left;
+	padding-left: 20px;
 }
 .sectionTitle {
 
