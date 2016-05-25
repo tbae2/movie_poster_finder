@@ -31,6 +31,8 @@ body {
 	padding-left: 10px;
 	padding-right: 10px;
 }
+
+
 .results {
 
   display: -webkit-flex;
@@ -56,6 +58,7 @@ body {
 	position: relative;
 	justify-content: center;
 	border-radius: 5px;
+	height:450px;
 }
 .result-poster img {
 	border-radius: 5px;
