@@ -1,6 +1,5 @@
 var emptyResults = function() {
     $('.results').empty();
-
 };
 
 
@@ -63,7 +62,7 @@ $("#searchkey").keypress(function(e) {
 //function accepts the index count, inputData each call (provided by each jquery function) and apiBaseURL 
 var createResults = function(indexCount, inputData, apiBaseUrl) {
 
-    //console.log(inputData);
+
     //var to make easier calls back to source data
     var mv = inputData;
     //vars to hold json properties that are arrays for easier addition to output
@@ -74,7 +73,7 @@ var createResults = function(indexCount, inputData, apiBaseUrl) {
         prodCompanies += '<li>' + mv.production_companies[x].name + '</li>';
     }
     //loop to produce the list of genres that apply to the movie
-    for(var x = 0; x < mv.genres.length; x++){
+    for (var x = 0; x < mv.genres.length; x++) {
         genreTypes += '<li>' + mv.genres[x].name + '</li>';
     }
 
@@ -90,7 +89,7 @@ var createResults = function(indexCount, inputData, apiBaseUrl) {
     //create movie poster element
     $('.movie-result.' + indexCount).append($('<div></div>', {
             'class': 'result-poster',
-            'html': mv.poster_path === null ? '<img src="./img/no_poster.png">' : '<img src=' + apiBaseUrl + "w300" + mv.poster_path + '>'    // '<img src=' + apiBaseUrl + "w300" + mv.poster_path === null ?  : mv.poster_path  + '>'
+            'html': mv.poster_path === null ? '<img src="./img/no_poster.png">' : '<img src=' + apiBaseUrl + "w300" + mv.poster_path + '>' 
         }))
         //create movie summary element
     $('.movie-result.' + indexCount).append($('<div></div>', {
@@ -110,11 +109,10 @@ var createResults = function(indexCount, inputData, apiBaseUrl) {
 
 //function to display hover div over posters.
 //need selector in the "on" portion in order to target dynamically created content
-$('.results').on('mouseenter','.result-poster', function() {
+$('.results').on('mouseenter', '.result-poster', function() {
     //target result hover div , while referencing only the parent div the mouse is over
-    $('.result-hover',this).fadeIn("slow"); 
+    $('.result-hover', this).fadeIn("slow");
     //mouse leave fade the hover div out to show the poster again.
 }).on('mouseleave', '.result-poster', function() {
     $('.result-hover', this).fadeOut('slow')
 });
-
