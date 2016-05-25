@@ -10,12 +10,26 @@ body {
 }
 #searchkey {
 	height: inherit;
+	border-radius:10px;
+	border-style:none;
+	outline: none;
+	padding-left: 10px;
+	padding-right: 10px;
 }
 #result-amount {
 	height: 31px;
+	border-radius: 10px;
+	border-style:none;
+	outline: none;
+	padding-left: 5px;
+	padding-right: 5px;
 }
 #searchapi {
 	height: 31px;
+	border-style:none;
+	outline: none;
+	padding-left: 10px;
+	padding-right: 10px;
 }
 .results {
 
