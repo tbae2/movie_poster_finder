@@ -27,13 +27,19 @@ $("#searchapi").click(function() {
     //search for the movie keyword
     $.getJSON(apiUrl + "search/movie?query=" + searchKey + "&" + api_key, function(data) {
         //deferred running until done calling
+       //this evaluates the length of the results array return, if 0 then no results. sends index count of 0 to creat results which then informs the user
+        if(data.results.length === 0){
+            createResults(0);
+        }
+        console.log(data);
     }).done(function(data) {
         //iterate each item in the data returned under the "results" 
         $.each(data.results, function(i, movie) {
             //call the API again to get more complete information utilizing the ID field from the "movie" item of the data returned
             $.getJSON(apiUrl + "movie/" + movie.id + "?" + api_key, function(data2) {
+                    //send the resulting data to the create results function
                     createResults(i, data2, apiBaseUrl);
-                    console.log(data2);
+
                 })
                 //stop the running if the desired result is matched by the iterations.
             if (resultAmount - 1 === i) {
@@ -45,29 +51,24 @@ $("#searchapi").click(function() {
 
 });
 
-//quick function to test proof of concept. 
-var testResult = function(data) {
-    console.log(data);
-}
-
-
-//register enter key  usage to fire the search function
-$("#searchkey").keypress(function(e) {
-    if (e.which == 13) {
-        $("#searchapi").click();
-    }
-})
-
 //function to create results from input provided via search api Jquery function. 
 //function accepts the index count, inputData each call (provided by each jquery function) and apiBaseURL 
 var createResults = function(indexCount, inputData, apiBaseUrl) {
-
 
     //var to make easier calls back to source data
     var mv = inputData;
     //vars to hold json properties that are arrays for easier addition to output
     var prodCompanies = '';
     var genreTypes = '';
+    //code to report that nothing is found for the desired search and stops the createResult function from executing further
+    if(indexCount === 0){
+        $('.results').append($('<div></div>', {
+            'class':'movie-not-found',
+            'html' : "<h1>Nothing found for that search please try again :(</h1>"
+        }));
+        return;
+    }
+
     //loop to produce list of production companies for the film
     for (var x = 0; x < mv.production_companies.length; x++) {
         prodCompanies += '<li>' + mv.production_companies[x].name + '</li>';
@@ -107,7 +108,15 @@ var createResults = function(indexCount, inputData, apiBaseUrl) {
 
 }
 
-//function to display hover div over posters.
+
+//register enter key  usage to fire the search function
+$("#searchkey").keypress(function(e) {
+    if (e.which == 13) {
+        $("#searchapi").click();
+    }
+})
+
+//jquery to display hover div over posters.
 //need selector in the "on" portion in order to target dynamically created content
 $('.results').on('mouseenter', '.result-poster', function() {
     //target result hover div , while referencing only the parent div the mouse is over
