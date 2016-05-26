@@ -55,7 +55,6 @@ $("#searchapi").click(function() {
 //function to create results from input provided via search api Jquery function. 
 //function accepts the index count, inputData each call (provided by each jquery function) and apiBaseURL 
 var createResults = function(indexCount, inputData, apiBaseUrl) {
-
     //var to make easier calls back to source data
     var mv = inputData;
     //vars to hold json properties that are arrays for easier addition to output
@@ -71,8 +70,11 @@ var createResults = function(indexCount, inputData, apiBaseUrl) {
     }
 
     //loop to produce list of production companies for the film
-    for (var x = 0; x < 3; x++) {
+    for (var x = 0; x < mv.production_companies.length; x++) {
         prodCompanies += '<li>' + mv.production_companies[x].name + '</li>';
+        if(x === 3){
+            break;
+        }
     }
     //loop to produce the list of genres that apply to the movie
     for (var x = 0; x < mv.genres.length; x++) {
