@@ -27,13 +27,14 @@ $("#searchapi").click(function() {
     //search for the movie keyword
     $.getJSON(apiUrl + "search/movie?query=" + searchKey + "&" + api_key, function(data) {
         //deferred running until done calling
-       //this evaluates the length of the results array return, if 0 then no results. sends index count of 0 to creat results which then informs the user
-        if(data.results.length === 0){
-            createResults(0);
-        }
-        console.log(data);
+
     }).done(function(data) {
         //iterate each item in the data returned under the "results" 
+        //this evaluates the length of the results array return, if 0 then no results. sends index count of 0 to creat results which then informs the user
+        if (data.results.length === 0) {
+            createResults(false);
+            return;
+        }
         $.each(data.results, function(i, movie) {
             //call the API again to get more complete information utilizing the ID field from the "movie" item of the data returned
             $.getJSON(apiUrl + "movie/" + movie.id + "?" + api_key, function(data2) {
@@ -61,16 +62,16 @@ var createResults = function(indexCount, inputData, apiBaseUrl) {
     var prodCompanies = '';
     var genreTypes = '';
     //code to report that nothing is found for the desired search and stops the createResult function from executing further
-    if(indexCount === 0){
+    if (indexCount === false) {
         $('.results').append($('<div></div>', {
-            'class':'movie-not-found',
-            'html' : "<h1>Nothing found for that search please try again :(</h1>"
+            'class': 'movie-not-found',
+            'html': "<h1>Nothing found for that search please try again :(</h1>"
         }));
         return;
     }
 
     //loop to produce list of production companies for the film
-    for (var x = 0; x < mv.production_companies.length; x++) {
+    for (var x = 0; x < 3; x++) {
         prodCompanies += '<li>' + mv.production_companies[x].name + '</li>';
     }
     //loop to produce the list of genres that apply to the movie
@@ -90,7 +91,7 @@ var createResults = function(indexCount, inputData, apiBaseUrl) {
     //create movie poster element
     $('.movie-result.' + indexCount).append($('<div></div>', {
             'class': 'result-poster',
-            'html': mv.poster_path === null ? '<img src="./img/no_poster.png">' : '<img src=' + apiBaseUrl + "w300" + mv.poster_path + '>' 
+            'html': mv.poster_path === null ? '<img src="./img/no_poster.png">' : '<img src=' + apiBaseUrl + "w300" + mv.poster_path + '>'
         }))
         //create movie summary element
     $('.movie-result.' + indexCount).append($('<div></div>', {
@@ -126,6 +127,6 @@ $('.results').on('mouseenter', '.result-poster', function() {
     $('.result-hover', this).fadeOut('slow')
 });
 
-$('#searchkey').click(function(){
+$('#searchkey').click(function() {
     $(this).val('');
 })
