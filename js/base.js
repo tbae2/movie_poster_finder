@@ -1,7 +1,14 @@
-var emptyResults = function() {
-    $('.results').empty();
-};
+// var emptyResults = function() {
+//     $('.results').empty();
+// };
 
+var emptyResults = function() {
+    var resultsDiv = document.getElementsByClassName('results');
+    while(resultsDiv.firstChild){
+        resultsDiv.removeChiled(resulstDiv.firstChild);
+    }
+
+};
 //starting the refactor for pure JS work 
 
 
