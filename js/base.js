@@ -2,6 +2,9 @@ var emptyResults = function() {
     $('.results').empty();
 };
 
+//starting the refactor for pure JS work 
+
+
 
 //grab button element to use to fire ajax request for search
 $("#searchapi").click(function() {
