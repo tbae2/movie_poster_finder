@@ -2,10 +2,13 @@
 //     $('.results').empty();
 // };
 
+//pure JS removal of elements under parent Node of results DIV
 var emptyResults = function() {
-    var resultsDiv = document.getElementsByClassName('results');
-    console.log(resultsDiv[0].innerHTML);
-    resultsDiv[0].innerHTML = '';
+    var resultsDiv = document.getElementById('results');
+    while(resultsDiv.firstChild){
+        resultsDiv.removeChild(resultsDiv.firstChild);
+    }
+
 
 };
 //starting the refactor for pure JS work 
@@ -71,7 +74,7 @@ var createResults = function(indexCount, inputData, apiBaseUrl) {
     var genreTypes = '';
     //code to report that nothing is found for the desired search and stops the createResult function from executing further
     if (indexCount === false) {
-        $('.results').append($('<div></div>', {
+        $('#results').append($('<div></div>', {
             'class': 'movie-not-found',
             'html': "<h1>Nothing found for that search please try again :(</h1>"
         }));
@@ -90,7 +93,7 @@ var createResults = function(indexCount, inputData, apiBaseUrl) {
         genreTypes += '<li>' + mv.genres[x].name + '</li>';
     }
 
-    $('.results').append($('<div></div>', {
+    $('#results').append($('<div></div>', {
         'class': 'movie-result ' + indexCount
     }));
     //create movie title
@@ -130,7 +133,7 @@ $("#searchkey").keypress(function(e) {
 
 //jquery to display hover div over posters.
 //need selector in the "on" portion in order to target dynamically created content
-$('.results').on('mouseenter', '.result-poster', function() {
+$('#results').on('mouseenter', '.result-poster', function() {
     //target result hover div , while referencing only the parent div the mouse is over
     $('.result-hover', this).fadeIn("slow");
     //mouse leave fade the hover div out to show the poster again.
