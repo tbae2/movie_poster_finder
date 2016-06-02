@@ -4,9 +4,8 @@
 
 var emptyResults = function() {
     var resultsDiv = document.getElementsByClassName('results');
-    while(resultsDiv.firstChild){
-        resultsDiv.removeChiled(resulstDiv.firstChild);
-    }
+    console.log(resultsDiv[0].innerHTML);
+    resultsDiv[0].innerHTML = '';
 
 };
 //starting the refactor for pure JS work 
