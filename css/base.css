@@ -39,7 +39,7 @@ body {
 }
 
 
-.results {
+#results {
 
   display: -webkit-flex;
   display: flex;
@@ -47,7 +47,7 @@ body {
  text-align: center;
  justify-content: space-around;
 }
-.results .movie-result {
+.movie-result {
 	/*short hand for flex-grow,flex-shrink,flexbasis*/
 	flex: 1 0 300px;
 	margin-left: 10px;
