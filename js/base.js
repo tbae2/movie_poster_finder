@@ -125,11 +125,14 @@ var createResults = function(indexCount, inputData, apiBaseUrl) {
 
 
 //register enter key  usage to fire the search function
-$("#searchkey").keypress(function(e) {
-    if (e.which == 13) {
-        $("#searchapi").click();
-    }
-})
+var enterKey = function() {
+    document.getElementById('searchkey').keypress(function(e) {
+        if (e.which == 13) {
+            createResults();
+        }
+    })
+}
+
 
 //jquery to display hover div over posters.
 //need selector in the "on" portion in order to target dynamically created content
