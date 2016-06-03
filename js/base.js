@@ -125,12 +125,12 @@ var createResults = function(indexCount, inputData, apiBaseUrl) {
 
 
 //register enter key  usage to fire the search function
-var enterKey = function() {
-    document.getElementById('searchkey').keypress(function(e) {
-        if (e.which == 13) {
-            createResults();
+var enterKey = function(e) {
+    
+        if (e.keyCode == 13) {
+            $('#searchapi').click();
         }
-    })
+    
 }
 
 
