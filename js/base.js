@@ -100,38 +100,63 @@ var createResults = function(indexCount, inputData, apiBaseUrl) {
     //     'class': 'movie-result ' + indexCount
     // }));
 
-    //first create the element
+    //first create the elements , first one goes as parent div under the result div
     var resultNode = document.createElement('div');
-    //give the element a class 
+    var movieTitle = document.createElement('div');
+    var resultPoster = document.createElement('div');
+    var resultOverview = document.createElement('div');
+    var resultHover = document.createElement('div');
+    //give the elements classes
     resultNode.className = 'movie-result ' + indexCount;
-    //append it as a  child to the results DIV
+    movieTitle.className = 'result-title';
+    resultPoster.className = 'result-poster';
+    resultOverview.className = 'result-overview';
+    resultHover.className = 'result-hover';
+
     pageResults.appendChild(resultNode);
+    resultNode.appendChild(movieTitle);
+      resultNode.appendChild(resultHover);
+    resultNode.appendChild(resultPoster);
+
+    resultNode.appendChild(resultOverview);
+    
+
+
 
 
 
     //create movie title
 
-    $('.movie-result.' + indexCount).append($('<div></div>', {
-        'class': 'result-title',
-        'html': mv.title
-    }));
-    //create movie poster element
-    $('.movie-result.' + indexCount).append($('<div></div>', {
-            'class': 'result-poster',
-            'html': mv.poster_path === null ? '<img src="./img/no_poster.png">' : '<img src=' + apiBaseUrl + "w300" + mv.poster_path + '>'
-        }))
-        //create movie summary element
-    $('.movie-result.' + indexCount).append($('<div></div>', {
-        'class': 'result-overview',
-        'html': '<p>' + mv.overview
-    }));
-    //create hover div that shows more information when poster is moused over
-    $('.movie-result.' + indexCount + ' .result-poster').append($('<div></div>', {
-        'class': 'result-hover',
-        'html': "Release Date: " + mv.release_date + '<br><span class="sectionTitle">Average Vote: </span>' +
-            mv.vote_average + '<br><span class="sectionTitle">Production Companies: </span>' + '<ul>' + prodCompanies + '</ul>' + '<br><span class="sectionTitle">Genres: </span>' + '<ul>' + genreTypes + '</ul>'
+    // $('.movie-result.' + indexCount).append($('<div></div>', {
+    //     'class': 'result-title',
+    //     'html': mv.title
+    // }));
 
-    }));
+    movieTitle.textContent = mv.title;
+    resultPoster.innerHTML = mv.poster_path === null ? '<img src="./img/no_poster.png">' : '<img src=' + apiBaseUrl + "w300" + mv.poster_path + '>';
+    resultOverview.innerHTML = mv.overview;
+    resultHover.innerHTML = "Release Date: " + mv.release_date + '<br><span class="sectionTitle">Average Vote: </span>' +
+            mv.vote_average + '<br><span class="sectionTitle">Production Companies: </span>' + '<ul>' + prodCompanies + '</ul>' + '<br><span class="sectionTitle">Genres: </span>' + '<ul>' + genreTypes + '</ul>';
+
+
+    //create movie poster element
+    // $('.movie-result.' + indexCount).append($('<div></div>', {
+    //         'class': 'result-poster',
+    //         'html': mv.poster_path === null ? '<img src="./img/no_poster.png">' : '<img src=' + apiBaseUrl + "w300" + mv.poster_path + '>'
+    //     }))
+    //resultNode.innerHTML = '<div class="result-poster">' + mv.poster_path === null ? '<img src="./img/no_poster.png">' : '<img src=' + apiBaseUrl + "w300" + mv.poster_path + '>' + '</div>';
+    //     //create movie summary element
+    // $('.movie-result.' + indexCount).append($('<div></div>', {
+    //     'class': 'result-overview',
+    //     'html': '<p>' + mv.overview
+    // }));
+    // //create hover div that shows more information when poster is moused over
+    // $('.movie-result.' + indexCount + ' .result-poster').append($('<div></div>', {
+    //     'class': 'result-hover',
+    //     'html': "Release Date: " + mv.release_date + '<br><span class="sectionTitle">Average Vote: </span>' +
+    //         mv.vote_average + '<br><span class="sectionTitle">Production Companies: </span>' + '<ul>' + prodCompanies + '</ul>' + '<br><span class="sectionTitle">Genres: </span>' + '<ul>' + genreTypes + '</ul>'
+
+    // }));
     //}
 
 }
