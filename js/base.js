@@ -96,9 +96,19 @@ var createResults = function(indexCount, inputData, apiBaseUrl) {
         genreTypes += '<li>' + mv.genres[x].name + '</li>';
     }
 
-    $('#results').append($('<div></div>', {
-        'class': 'movie-result ' + indexCount
-    }));
+    // $('#results').append($('<div></div>', {
+    //     'class': 'movie-result ' + indexCount
+    // }));
+
+    //first create the element
+    var resultNode = document.createElement('div');
+    //give the element a class 
+    resultNode.className = 'movie-result ' + indexCount;
+    //append it as a  child to the results DIV
+    pageResults.appendChild(resultNode);
+
+
+
     //create movie title
 
     $('.movie-result.' + indexCount).append($('<div></div>', {
