@@ -72,12 +72,15 @@ var createResults = function(indexCount, inputData, apiBaseUrl) {
     //vars to hold json properties that are arrays for easier addition to output
     var prodCompanies = '';
     var genreTypes = '';
+    var pageResults = document.getElementById('results');
     //code to report that nothing is found for the desired search and stops the createResult function from executing further
     if (indexCount === false) {
-        $('#results').append($('<div></div>', {
-            'class': 'movie-not-found',
-            'html': "<h1>Nothing found for that search please try again :(</h1>"
-        }));
+        // $('#results').append($('<div></div>', {
+        //     'class': 'movie-not-found',
+        //     'html': "<h1>Nothing found for that search please try again :(</h1>"
+        // }));
+        console.log(pageResults);
+        pageResults.innerHTML = "<h1>Nothing found for that search please try again :(</h1>"
         return;
     }
 
@@ -143,6 +146,7 @@ $('#results').on('mouseenter', '.result-poster', function() {
 }).on('mouseleave', '.result-poster', function() {
     $('.result-hover', this).fadeOut('slow')
 });
+
 
 $('#searchkey').click(function() {
     $(this).val('');
