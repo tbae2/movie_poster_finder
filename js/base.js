@@ -103,21 +103,23 @@ var createResults = function(indexCount, inputData, apiBaseUrl) {
     //first create the elements , first one goes as parent div under the result div
     var resultNode = document.createElement('div');
     var movieTitle = document.createElement('div');
+    //var resultHover = document.createElement('div');
     var resultPoster = document.createElement('div');
     var resultOverview = document.createElement('div');
-    var resultHover = document.createElement('div');
+   
+    
     //give the elements classes
     resultNode.className = 'movie-result ' + indexCount;
     movieTitle.className = 'result-title';
+    //resultHover.className = 'result-hover';
     resultPoster.className = 'result-poster';
     resultOverview.className = 'result-overview';
-    resultHover.className = 'result-hover';
-
+ 
     pageResults.appendChild(resultNode);
     resultNode.appendChild(movieTitle);
-      resultNode.appendChild(resultHover);
+   // resultPoster.appendChild(resultHover);
     resultNode.appendChild(resultPoster);
-
+    
     resultNode.appendChild(resultOverview);
     
 
