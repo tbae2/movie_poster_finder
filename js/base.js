@@ -5,7 +5,7 @@
 //pure JS removal of elements under parent Node of results DIV
 var emptyResults = function() {
     var resultsDiv = document.getElementById('results');
-    while(resultsDiv.firstChild){
+        while(resultsDiv.firstChild){
         resultsDiv.removeChild(resultsDiv.firstChild);
     }
 
@@ -75,11 +75,6 @@ var createResults = function(indexCount, inputData, apiBaseUrl) {
     var pageResults = document.getElementById('results');
     //code to report that nothing is found for the desired search and stops the createResult function from executing further
     if (indexCount === false) {
-        // $('#results').append($('<div></div>', {
-        //     'class': 'movie-not-found',
-        //     'html': "<h1>Nothing found for that search please try again :(</h1>"
-        // }));
-        console.log(pageResults);
         pageResults.innerHTML = "<h1>Nothing found for that search please try again :(</h1>"
         return;
     }
@@ -96,44 +91,25 @@ var createResults = function(indexCount, inputData, apiBaseUrl) {
         genreTypes += '<li>' + mv.genres[x].name + '</li>';
     }
 
-    // $('#results').append($('<div></div>', {
-    //     'class': 'movie-result ' + indexCount
-    // }));
-
     //first create the elements , first one goes as parent div under the result div
     var resultNode = document.createElement('div');
     var movieTitle = document.createElement('div');
     //var resultHover = document.createElement('div');
     var resultPoster = document.createElement('div');
     var resultOverview = document.createElement('div');
-   
-    
     //give the elements classes
     resultNode.className = 'movie-result ' + indexCount;
     movieTitle.className = 'result-title';
     //resultHover.className = 'result-hover';
     resultPoster.className = 'result-poster';
     resultOverview.className = 'result-overview';
- 
     pageResults.appendChild(resultNode);
     resultNode.appendChild(movieTitle);
    // resultPoster.appendChild(resultHover);
     resultNode.appendChild(resultPoster);
-    
     resultNode.appendChild(resultOverview);
-    
-
-
-
-
 
     //create movie title
-
-    // $('.movie-result.' + indexCount).append($('<div></div>', {
-    //     'class': 'result-title',
-    //     'html': mv.title
-    // }));
-
     var hoverDiv = '<div class="result-hover">Release Date: ' + mv.release_date + '<br><span class="sectionTitle">Average Vote: </span>' +
             mv.vote_average + '<br><span class="sectionTitle">Production Companies: </span>' + '<ul>' + prodCompanies + '</ul>' + '<br><span class="sectionTitle">Genres: </span>' + '<ul>' + genreTypes + '</ul></div>';
 
@@ -141,40 +117,15 @@ var createResults = function(indexCount, inputData, apiBaseUrl) {
     resultPoster.innerHTML = mv.poster_path === null ? '<img src="./img/no_poster.png">' : '<img src=' + apiBaseUrl + "w300" + mv.poster_path + '>' + hoverDiv;
     resultOverview.innerHTML = mv.overview;
 
-
-
-    //create movie poster element
-    // $('.movie-result.' + indexCount).append($('<div></div>', {
-    //         'class': 'result-poster',
-    //         'html': mv.poster_path === null ? '<img src="./img/no_poster.png">' : '<img src=' + apiBaseUrl + "w300" + mv.poster_path + '>'
-    //     }))
-    //resultNode.innerHTML = '<div class="result-poster">' + mv.poster_path === null ? '<img src="./img/no_poster.png">' : '<img src=' + apiBaseUrl + "w300" + mv.poster_path + '>' + '</div>';
-    //     //create movie summary element
-    // $('.movie-result.' + indexCount).append($('<div></div>', {
-    //     'class': 'result-overview',
-    //     'html': '<p>' + mv.overview
-    // }));
-    // //create hover div that shows more information when poster is moused over
-    // $('.movie-result.' + indexCount + ' .result-poster').append($('<div></div>', {
-    //     'class': 'result-hover',
-    //     'html': "Release Date: " + mv.release_date + '<br><span class="sectionTitle">Average Vote: </span>' +
-    //         mv.vote_average + '<br><span class="sectionTitle">Production Companies: </span>' + '<ul>' + prodCompanies + '</ul>' + '<br><span class="sectionTitle">Genres: </span>' + '<ul>' + genreTypes + '</ul>'
-
-    // }));
-    //}
-
 }
-
 
 //register enter key  usage to fire the search function
 var enterKey = function(e) {
-    
+
         if (e.keyCode == 13) {
             $('#searchapi').click();
         }
-    
 }
-
 
 //jquery to display hover div over posters.
 //need selector in the "on" portion in order to target dynamically created content
@@ -187,6 +138,7 @@ $('#results').on('mouseenter', '.result-poster', function() {
 });
 
 
-$('#searchkey').click(function() {
-    $(this).val('');
+var searchKey = document.getElementById('searchkey');
+searchKey.click(function() {
+    this.val('');
 })
