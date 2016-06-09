@@ -134,11 +134,13 @@ var createResults = function(indexCount, inputData, apiBaseUrl) {
     //     'html': mv.title
     // }));
 
+    var hoverDiv = '<div class="result-hover">Release Date: ' + mv.release_date + '<br><span class="sectionTitle">Average Vote: </span>' +
+            mv.vote_average + '<br><span class="sectionTitle">Production Companies: </span>' + '<ul>' + prodCompanies + '</ul>' + '<br><span class="sectionTitle">Genres: </span>' + '<ul>' + genreTypes + '</ul></div>';
+
     movieTitle.textContent = mv.title;
-    resultPoster.innerHTML = mv.poster_path === null ? '<img src="./img/no_poster.png">' : '<img src=' + apiBaseUrl + "w300" + mv.poster_path + '>';
+    resultPoster.innerHTML = mv.poster_path === null ? '<img src="./img/no_poster.png">' : '<img src=' + apiBaseUrl + "w300" + mv.poster_path + '>' + hoverDiv;
     resultOverview.innerHTML = mv.overview;
-    resultHover.innerHTML = "Release Date: " + mv.release_date + '<br><span class="sectionTitle">Average Vote: </span>' +
-            mv.vote_average + '<br><span class="sectionTitle">Production Companies: </span>' + '<ul>' + prodCompanies + '</ul>' + '<br><span class="sectionTitle">Genres: </span>' + '<ul>' + genreTypes + '</ul>';
+
 
 
     //create movie poster element
