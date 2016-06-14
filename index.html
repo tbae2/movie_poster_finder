@@ -16,14 +16,16 @@
     <div class="headersearch">
         <h1>Movie Finder</h1>
         <div class="searchoptions">
-        <input type="text" id="searchkey" onkeypress="enterKey(event, this);"></input>
-
-        <select id="result-amount">
-            <option>1</option>
-            <option>5</option>
-        </select>
-        <input type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" value="Search" id="searchapi"></input>
-           </div>
+            <div class="mdl-textfield mdl-js-textfield">
+                <input type="text" class="mdl-textfield__input" id="searchkey" onkeypress="enterKey(event, this);"></input>
+                <label class="mdl-textfield__label" for="sample1">Text...</label>
+            </div>
+            <select id="result-amount">
+                <option>1</option>
+                <option>5</option>
+            </select>
+            <input type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" value="Search" id="searchapi"></input>
+        </div>
     </div>
     <div id="results"></div>
     <div class="footer">
@@ -31,9 +33,9 @@
     </div>
     <script src="./js/jquery-2.2.3.js"></script>
     <script type="text/javascript" src="./js/base.js"></script>
-<!--         script that holds api key and keeps out of git as .git ignored -->
+    <!--         script that holds api key and keeps out of git as .git ignored -->
     <script type="text/javascript" src="./js/config.js"></script>
-    
 </body>
+
 
 </html>

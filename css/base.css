@@ -1,6 +1,6 @@
 body {
 	font-family: 'Cambay', sans-serif;
-	 background-color: rgba(13, 37, 154, 0.64);
+	 background-color: white;
 }
 .headersearch {
 	text-align:center;
@@ -11,16 +11,16 @@ body {
 	margin-bottom:0px;
 }
 .searchoptions {
-	height: 25px;
+	height: inherit;
 }
-#searchkey {
+/*#searchkey {
 	height: inherit;
 	border-radius:5px;
 	border-style:none;
 	outline: none;
 	padding: 0px 10px 0px 10px;
 	
-}
+}*/
 #result-amount {
 	height: inherit;
 	border-radius: 5px;
