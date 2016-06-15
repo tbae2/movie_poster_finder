@@ -129,16 +129,14 @@ var enterKey = function(e) {
 
 //jquery to display hover div over posters.
 //need selector in the "on" portion in order to target dynamically created content
-document.getElementById('results').addEventListener('mouseenter', '.result-poster', function() {
+$('#results').on('mouseenter', '.result-poster', function() {
     //target result hover div , while referencing only the parent div the mouse is over
     $('.result-hover', this).fadeIn("slow");
     //mouse leave fade the hover div out to show the poster again.
-});
-/*
-.on('mouseleave', '.result-poster', function() {
+}).on('mouseleave', '.result-poster', function() {
     $('.result-hover', this).fadeOut('slow')
 });
-*/
+
 
 var searchKey = document.getElementById('searchkey');
 searchKey.click(function() {
