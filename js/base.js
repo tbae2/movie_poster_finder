@@ -98,11 +98,11 @@ var createResults = function(indexCount, inputData, apiBaseUrl) {
     var resultPoster = document.createElement('div');
     var resultOverview = document.createElement('div');
     //give the elements classes
-    resultNode.className = 'movie-result ' + indexCount;
-    movieTitle.className = 'result-title';
+    resultNode.className = 'movieresult mdl-card mdl-shadow--4dp ' + indexCount;
+    movieTitle.className = 'mdl-card__title mdl-card--expand mdl-card--border';
     //resultHover.className = 'result-hover';
-    resultPoster.className = 'result-poster';
-    resultOverview.className = 'result-overview';
+    resultPoster.className = 'mdl-card__media mdl-card--border';
+    resultOverview.className = 'mdl-card__supporting-text mdl-card--border';
     pageResults.appendChild(resultNode);
     resultNode.appendChild(movieTitle);
    // resultPoster.appendChild(resultHover);
