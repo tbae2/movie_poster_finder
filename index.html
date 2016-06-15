@@ -18,12 +18,23 @@
         <div class="searchoptions">
             <div class="mdl-textfield mdl-js-textfield">
                 <input type="text" class="mdl-textfield__input" id="searchkey" onkeypress="enterKey(event, this);"></input>
-                <label class="mdl-textfield__label" for="sample1">Text...</label>
+                <label class="mdl-textfield__label" for="sample1">Movie Title...</label>
             </div>
-            <select id="result-amount">
+<!--             <select id="result-amount">
                 <option>1</option>
                 <option>5</option>
-            </select>
+            </select> -->
+            <button id="result-amount" class="mdl-button mdl-js-button mdl-button--icon">
+                <i class="material-icons">more_vert</i>
+            </button>
+            <ul id="itemcount" class="mdl-menu mdl-js-menu" for="result-amount">
+                <li class="mdl-menu__item">1</li>
+                <li class="mdl-menu__item">5</li>
+            </ul>    
+
+
+
+
             <input type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" value="Search" id="searchapi"></input>
         </div>
     </div>
