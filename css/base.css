@@ -47,9 +47,10 @@ body {
  text-align: center;
  justify-content: space-around;
 }
-.movie-result {
+
+.movieresult.mdl-card {
 	/*short hand for flex-grow,flex-shrink,flexbasis*/
-	flex: 1 0 300px;
+	width:300px;
 /*	margin-left: 10px;
 	margin-top: 10px;
 	padding: 10px;
