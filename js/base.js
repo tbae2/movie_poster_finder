@@ -24,7 +24,7 @@ $("#searchapi").click(function() {
     var api_key = config.tmdb_api_key;
     //base api url
     var apiUrl = "https://api.themoviedb.org/3/";
-    var resultAmount = document.getElementById('result-amount').value;
+    var resultAmount = document.getElementById('itemcount').value;
     var holdOverView;
     var holdResults = [];
 
@@ -99,7 +99,7 @@ var createResults = function(indexCount, inputData, apiBaseUrl) {
     var resultOverview = document.createElement('div');
     //give the elements classes
     resultNode.className = 'movieresult mdl-card mdl-shadow--4dp ' + indexCount;
-    movieTitle.className = 'mdl-card__title mdl-card--expand mdl-card--border';
+    movieTitle.className = 'mdl-card__title mdl-card--border';
     //resultHover.className = 'result-hover';
     resultPoster.className = 'mdl-card__media mdl-card--border';
     resultOverview.className = 'mdl-card__supporting-text mdl-card--border';
