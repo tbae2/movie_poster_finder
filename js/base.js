@@ -4,19 +4,22 @@
 
 //pure JS removal of elements under parent Node of results DIV
 var emptyResults = function() {
-    var resultsDiv = document.getElementById('results');
+        var resultsDiv = document.getElementById('results');
         while(resultsDiv.firstChild){
         resultsDiv.removeChild(resultsDiv.firstChild);
     }
-
-
 };
 //starting the refactor for pure JS work 
 
-
-
 //grab button element to use to fire ajax request for search
-$("#searchapi").click(function() {
+
+
+$("#searchapi").click(function(){
+    searchRequest(1);
+})
+
+
+var searchRequest = function(valAmount) {
     emptyResults();
     //grab the search term from the input box
     var searchKey = document.getElementById('searchkey').value;
@@ -24,7 +27,7 @@ $("#searchapi").click(function() {
     var api_key = config.tmdb_api_key;
     //base api url
     var apiUrl = "https://api.themoviedb.org/3/";
-    var resultAmount = document.getElementById('itemcount').value;
+    var resultAmount = valAmount;
     var holdOverView;
     var holdResults = [];
 
@@ -62,7 +65,7 @@ $("#searchapi").click(function() {
         })
     })
 
-});
+};
 
 //function to create results from input provided via search api Jquery function. 
 //function accepts the index count, inputData each call (provided by each jquery function) and apiBaseURL 
@@ -114,7 +117,7 @@ var createResults = function(indexCount, inputData, apiBaseUrl) {
             mv.vote_average + '<br><span class="sectionTitle">Production Companies: </span>' + '<ul>' + prodCompanies + '</ul>' + '<br><span class="sectionTitle">Genres: </span>' + '<ul>' + genreTypes + '</ul></div>';
 
     movieTitle.textContent = mv.title;
-    resultPoster.innerHTML = mv.poster_path === null ? '<img src="./img/no_poster.png">' : '<img src=' + apiBaseUrl + "w300" + mv.poster_path + '>' + hoverDiv;
+    resultPoster.innerHTML = mv.poster_path === null ? '<img id="noimage" src="./img/no_poster.png">' : '<img src=' + apiBaseUrl + "w300" + mv.poster_path + '>' + hoverDiv;
     resultOverview.innerHTML = mv.overview;
 
 }
@@ -123,7 +126,7 @@ var createResults = function(indexCount, inputData, apiBaseUrl) {
 var enterKey = function(e) {
 
         if (e.keyCode == 13) {
-            document.getElementById('searchkey').click();
+            searchRequest(1);
         }
 }
 
@@ -133,12 +136,12 @@ $('#results').on('mouseenter', '.result-poster', function() {
     //target result hover div , while referencing only the parent div the mouse is over
     $('.result-hover', this).fadeIn("slow");
     //mouse leave fade the hover div out to show the poster again.
-}).on('mouseleave', '.result-poster', function() {
+    }).on('mouseleave', '.result-poster', function() {
     $('.result-hover', this).fadeOut('slow')
 });
 
-
-var searchKey = document.getElementById('searchkey');
-searchKey.click(function() {
-    this.val('');
+//update UI based on menu selection of amount of
+$('.mdl-menu__item').click(function(){
+    var amount = $(this).val();
+    searchRequest(amount);
 })
